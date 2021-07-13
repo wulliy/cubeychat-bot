@@ -7,7 +7,7 @@ const cooldown = new Set()
 const cooldownTime = 400
 
 const cmdCooldown = new Set()
-const cmdCooldownTime = 1500
+const cmdCooldownTime = 1000
 
 //var dad = false
 
@@ -126,7 +126,7 @@ socket.onmessage = (json) => {
             cmdCooldown.add(msg.user)
         } else {
             setTimeout(() => {cmdCooldown.delete(msg.user)}, cmdCooldownTime)
-            return sendMessage(`@${msg.user}, please wait 1.5 seconds before running this command again.`)
+            return sendMessage(`@${msg.user}, please wait at least 1 seconds before running this command again.`)
         }
 
         if (!localStorage.getItem(msg.user)) return sendMessage("you dont have a wallet yet go get one by saying \"/balance\" or \"/bal\"")
