@@ -1,3 +1,5 @@
+// cubey should really protect his sockets more kmao
+
 var socket = new WebSocket(`wss://${window.location.hostname}`)
 
 const prefix = "/"
